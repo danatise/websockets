@@ -23,7 +23,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/schools','App\Http\Controllers\SchoolController');
 
+Route::resource('/pdf','App\Http\Controllers\PDFController');
+
 
 Route::get('import_export', 'App\Http\Controllers\ImportExportController@importExport');
 Route::post('import', 'App\Http\Controllers\ImportExportController@import');
 Route::post('export', 'App\Http\Controllers\ImportExportController@export');
+
+
+

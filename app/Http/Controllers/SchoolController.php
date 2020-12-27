@@ -21,7 +21,7 @@ class SchoolController extends Controller
     {
         //
 
-        $schools = DB::table('schools')->paginate(); //this is for pagination
+        $schools = DB::table('schools')->orderBy('name','ASC')->paginate(); //this is for pagination
 
         return view ('school.showschools',['schools'=>$schools]);
     }
@@ -54,6 +54,7 @@ class SchoolController extends Controller
             'slug'=>['string','max:255','unique:schools'],
             'email_suffix' => ['required', 'max:255', 'unique:schools'],
             'username_prefix'=> ['required', 'max:255', 'unique:schools'], 
+            'teacher_password_root'=> ['required', 'max:255'], 
             'school_id'=>['integer','unique:schools'],
             'password_root'=>['string'],
            
@@ -109,3 +110,4 @@ class SchoolController extends Controller
         //
     }
 }
+

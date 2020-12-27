@@ -93,7 +93,7 @@
                         
 
                         <div class="form-group row">
-                            <label for="password_root" class="col-md-4 col-form-label text-md-right">Password Root</label>
+                            <label for="password_root" class="col-md-4 col-form-label text-md-right">Student Password Root</label>
 
                             <div class="col-md-6">
                                 <input id="password_root" type="text" class="form-control @error('password_root') is-invalid @enderror" name="password_root" value="{{ old('password_root') }}" required autofocus>
@@ -106,6 +106,22 @@
                             </div>
                         </div>
 
+
+
+
+                        <div class="form-group row">
+                            <label for="teacher_password_root" class="col-md-4 col-form-label text-md-right">Teacher Password Root</label>
+
+                            <div class="col-md-6">
+                                <input id="teacher_password_root" type="text" class="form-control @error('password_root') is-invalid @enderror" name="teacher_password_root" value="{{ old('teacher_password_root') }}" required autofocus>
+
+                                @error('teacher_password_root')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                          
 

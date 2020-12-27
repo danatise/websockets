@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $schools =School::all();
+        $schools =School::orderBy('name','ASC')->get();
         return view('home', ['schools'=>$schools]);
     }
 }

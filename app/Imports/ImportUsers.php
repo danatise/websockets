@@ -45,13 +45,13 @@ class ImportUsers implements ToModel,  WithHeadingRow
                 'fname' => $row['fname'],
                 'lname' => $row['lname'],
                 'email'=> strtolower($row['fname']).strtolower($row['lname']).$this->school->email_suffix,
-                'password'=>  $this->school->password_root.rand(999,9999),
+                'password'=> $row['role']=='student' ? $this->school->password_root.rand(91,999) : $this->school->teacher_password_root.rand(90,900) ,
                 'role'=> $row['role'],
                 'school_id'=> $this->school->school_id,
                 'plan_id'=> 4,
                 'is_active'=> 1,
                 'phone'=> '00000000',
-                'username'=> $this->school->username_prefix.strtolower($row['fname']).strtolower($row['lname']),
+                'username'=> $this->school->username_prefix.strtolower( substr($row['fname'],0,3)).strtolower(substr($row['lname'],0,3)).rand(10,99),
             
             
         ]);

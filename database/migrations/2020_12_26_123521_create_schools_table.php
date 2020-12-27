@@ -19,6 +19,7 @@ class CreateSchoolsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('email_suffix')->nullable();
             $table->string('username_prefix')->nullable();
+            $table->string('teacher_password_root')->nullable();
             $table->string('school_id')->nullable();
             $table->string('password_root')->nullable();
 

@@ -52,7 +52,8 @@
                 <th class="text-center">Email Suffix</th>
                 <th class="text-center">Username Prefix</th>
                 <th class="text-center">School _id</th>
-                <th class="text-center">Password Root</th>
+                <th class="text-center">Student Password Root</th>
+                <th class="text-center">Teacher Password Root</th>
                 
                 
         </tr>
@@ -67,6 +68,7 @@
                 <td class="text-center"><a href="">{{$school->username_prefix}}</a></td>
                 <td class="text-center"><a href="">{{$school->school_id}}</a></td>
                 <td class="text-center"><a href="">{{$school->password_root}}</a></td>
+                <td class="text-center"><a href="">{{$school->teacher_password_root}}</a></td>
 
                 
                 

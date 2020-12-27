@@ -30,6 +30,6 @@ class ExportUsers implements FromCollection
 
     public function collection()
     {
-        return User::where('school_id', $this->school->school_id)->orderBy('fname','ASC')->orderBy('role','ASC')->get();
+        return User::where('school_id', $this->school->school_id)->orderBy('role','ASC')->orderBy('fname','ASC')->get();
     }
 }

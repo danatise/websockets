@@ -108,9 +108,62 @@
 	                            </form>
                             </div>
                         </div>
+
+
+
+<!---download and view pdf--->
+                        <hr/>
+                        <h3>Download PDF</h3>
+                        
+                    <div class=" mt-5">
+                            <div class="">
+                                <div class="">
+
+                            <form action="/pdf" method="GET" >
+                            @csrf
+                                       <!-----for selecting schoool-->
+                                 <div class="form-group row">
+                                        <label for="school_id" class="col-md-2 col-form-label text-md-right">School</label>
+                                            <div class="col-md-8">
+                                                <select id="school_id" name="school_id" class="form-control @error('school_id') is-invalid @enderror">
+                                                    <option value="">Select --</option>
+                                                @if(count($schools))
+                                                    @foreach($schools as $school)
+                                                    <option value="{{$school->id}}">{{$school->name}}</option>
+                                                    @endforeach
+                                                @endif
+                          
+                                    
+                            </select>
+
+                                @error('school_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>     
+                        <!----end of select school-->
+
+                                    <div class="">
+                                        <button  type="submit"class="btn btn-outline-danger">View PDF</button>
+                                    </div>
+
+                        </form>
+
+                                </div>
+                            </div>
+                    </div>
+<!---end download and view pdf--->
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 @endsection
