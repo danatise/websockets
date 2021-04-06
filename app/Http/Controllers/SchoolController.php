@@ -74,6 +74,11 @@ class SchoolController extends Controller
     public function show(School $school)
     {
         //
+
+        $users = User::where('school_id',$school->school_id)->pluck('id')->toArray();
+        
+        User::destroy($users);
+        return redirect('/schools')->with('success',['alert-success','School Updated successfully!']);
     }
 
     /**
@@ -85,6 +90,7 @@ class SchoolController extends Controller
     public function edit(School $school)
     {
         //
+        return view('school.editschoolform',['school'=>$school]);
     }
 
     /**
@@ -97,6 +103,13 @@ class SchoolController extends Controller
     public function update(Request $request, School $school)
     {
         //
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'slug' => 'string|unique:schools,slug,'.$school->id,
+                 ]);
+        $school->update($data);
+
+        return redirect('/schools')->with('success',['alert-success','School Updated successfully!']);
     }
 
     /**
@@ -108,6 +121,11 @@ class SchoolController extends Controller
     public function destroy(School $school)
     {
         //
+        
+        $users = User::where('school_id',$school->school_id)->pluck('id')->toArray();
+        School::destroy($school->id);
+        User::destroy($users);
+        return redirect('/schools')->with('success',['alert-success','School Updated successfully!']);
     }
 }
 

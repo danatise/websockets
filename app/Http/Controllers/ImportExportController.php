@@ -23,7 +23,7 @@ class ImportExportController extends Controller
     {
         $school = School::find($request->school_id);
 
-        return Excel::download(new ExportUsers($school), 'users.xlsx');
+        return Excel::download(new ExportUsers($school), $school->name.'_users_cepupload.xlsx');
     }
 
     public function import(Request $request) 
